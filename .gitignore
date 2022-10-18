@@ -4,6 +4,7 @@
 /app
 /.shadow-cljs
 /.clj-kondo
+/dist-test/
 # Xcode
 #
 build/

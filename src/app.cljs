@@ -1,8 +1,6 @@
 (ns app
-  (:require 
-   ["react-native" :as rn]
-   [reagent.core :as reagent]))
+  (:require
+   ["react-native" :as rn]))
 
 (defn app []
-  [:> rn/Text "hello222"]
-  )
+  [:> rn/Text "hello world"])

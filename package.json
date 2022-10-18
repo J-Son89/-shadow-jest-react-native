@@ -7,7 +7,9 @@
     "android": "expo run:android",
     "ios": "expo run:ios",
     "web": "expo start --web",
-    "shadow": "shadow-cljs compile mobile"
+    "watch-app": "shadow-cljs watch mobile",
+    "watch-test": "shadow-cljs watch test",
+    "test": "jest"
   },
   "dependencies": {
     "expo": "~46.0.16",
@@ -22,7 +24,13 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
-    "shadow-cljs": "^2.10.14"
+    "@testing-library/react-native": "^11.3.0",
+    "shadow-cljs": "^2.10.14",
+    "@testing-library/jest-native": "^5.0.0",
+    "clj-kondo": "^2022.9.8",
+    "jest": "^25.1.0",
+    "react-test-renderer": "18.0.0",
+    "ws": "^8.9.0"
   },
   "private": true
 }
