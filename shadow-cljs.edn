@@ -1,0 +1,31 @@
+;; shadow-cljs configuration
+{:source-paths ["src"]
+ :dependencies [[org.clojure/core.async "1.1.587"]
+                [reagent "1.0.0"]]
+
+ ;; port and middleware for repl in development
+ :nrepl {:port 7888
+         :middleware [cider.piggieback/wrap-cljs-repl
+                      refactor-nrepl.middleware/wrap-refactor]}
+
+ ;; shadow-cljs web interface
+ :http {:port 3449
+        :host "0.0.0.0"}
+
+ :cache-blockers #{status-im.utils.js-resources status-im.ui.components.icons.icons}
+
+ :builds {:mobile
+          {:target :react-native
+           :output-dir "app"
+           :init-fn core/init
+           ;; When false, the Shadow-CLJS watcher won't automatically refresh
+           ;; the target files (a.k.a hot reload). When false, you can manually
+           ;; reload by calling `shadow.cljs.devtools.api/watch-compile-all!`.
+           :devtools {:autobuild #shadow/env ["SHADOW_AUTOBUILD_ENABLED" :default true :as :bool]}
+           :compiler-options {:output-feature-set :es5
+                              :source-map false
+                              :infer-externs true}
+                 ;; if you want to use a real device, set your local ip
+                 ;; in the SHADOW_HOST env variable to make sure that
+                 ;; it will use the right interface
+           :local-ip #shadow/env "SHADOW_HOST"}}}
